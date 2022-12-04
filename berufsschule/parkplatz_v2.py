@@ -4,17 +4,6 @@ continue_readNewStatus = True
 continue_readParkingSpace = True
 
 
-def define_status_text(e):
-    global status
-    validated_status = validate_status(e)
-    if validated_status == 0:
-        status = "frei"
-    elif validated_status == 1:
-        status = "reserviert"
-    elif validated_status == 2:
-        status = "belegt"
-
-
 def validate_status(e):
     global continue_readNewStatus
     if 2 >= e >= 0:
@@ -72,7 +61,7 @@ while True:
         parkingSpaceChange = read_parkinglot()
         validate_parkinglot(parkingSpaceChange)
 
-    define_status_text(statusChange)
+    print_parking_spaces(statusChange)
 
     parkingLot[parkingSpaceChange] = statusChange
     print("Parkplatz " + str(parkingSpaceChange) + " wurde " + status + "\n\n")
