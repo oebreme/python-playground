@@ -1,22 +1,5 @@
-# import numpy as np
-
-# brr = np.empty(10, None)
-#
-# print(brr)
-
-# arr = [None] * 10
-#
-# print(arr)
-#
-
-
 parkingLot = [0, 1, 1, 0, 0, 2, 0, 1, 2, 0]
-blob = True
 status = ""
-iterator = iter(parkingLot)
-
-statusChange = ""
-parkingSpaceChange = ""
 
 
 def define_status_text(e):
@@ -31,19 +14,17 @@ def define_status_text(e):
         status = ":("
 
 
-while blob:
+while True:
     for index, parkingSpace in enumerate(parkingLot):
         define_status_text(parkingSpace)
-        print("Parkplatz " + str(index) + " ist " + status + "\n\n")
-    print("Eingabe")
+        print("Parkplatz " + str(index) + " ist " + status)
+    print("\n\nEingabe")
     print("-----------" + "\n")
-    statusChange = input("Status (0-2): ")
-    parkingSpaceChange = input("ParkplatzNr. (1-10): ")
-
-    statusChange = int(statusChange)
+    statusChange = int(input("Status (0-2): "))
+    parkingSpaceChange = int(input("ParkplatzNr. (1-10): "))
 
     define_status_text(statusChange)
 
-    parkingLot[int(parkingSpaceChange)] = statusChange
-    print("Parkplatz " + parkingSpaceChange + " wurde " + status + "\n\n")
+    parkingLot[parkingSpaceChange] = statusChange
+    print("Parkplatz " + str(parkingSpaceChange) + " wurde " + status + "\n\n")
     print("\n" * 50)
